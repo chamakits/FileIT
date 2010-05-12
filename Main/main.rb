@@ -6,26 +6,31 @@ def getDirFrom
   return ARGV.to_a[0]
 end
 
-def getExtension
+def getDirTo
   return ARGV.to_a[1]
 end
 
-def getToAppFolder?
+def getExtension
   return ARGV.to_a[2]
 end
 
-def getRecurse?
-  return ARGV.to_a[3]
+def toAppFolder?
+  return ARGV.to_a[3].eql? "t"
 end
 
-def getMode?
-  return ARGV.to_a[4]
+def recurse?
+  return ARGV.to_a[4].eql? "t"
+end
+
+def getMode
+  return ARGV.to_a[5]
 end
 
 from = File.expand_path(getDirFrom)
+to = File.expand_path(getDirTo)
 ext = getExtension
-toAppFolder = getToAppFolder?.eql? "t"
-recurse = getRecurse?.eql? "t"
-mode = getMode?
+toAppFolder = toAppFolder?
+recurse = recurse?
+mode = getMode
 
-moveToExtensionBasedFolder(from,ext,toAppFolder,recurse,mode)
+moveFromTo(from,to,ext,toAppFolder,recurse,mode)

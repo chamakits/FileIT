@@ -80,3 +80,16 @@ def moveToExtensionBasedFolder(directoryFrom,extension,moveToMoveItFolder,recurs
 #  moveFilesOfTypeFromTo(directoryFrom, File.join(directoryTo,extension), extension,recurse)
   moveOrCopyFilesOfType(directoryFrom, File.join(directoryTo,extension), extension, recurse, mode)
 end
+
+def moveFromTo(from,to,extension,moveToMoveItFolder,recurse,mode="s")
+  appName = "moveIT"
+  appBasedDir = appName+"_folder"
+  if to.eql? "DEFAULT"
+    to = from
+  end
+  if moveToMoveItFolder
+    to = File.join(to,appBasedDir)
+    makeAllNonExistentDirectories(to)
+  end
+  moveOrCopyFilesOfType(from, File.join(to,extension), extension, recurse, mode)
+end
