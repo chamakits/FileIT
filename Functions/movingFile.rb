@@ -11,7 +11,7 @@ def makeAllNonExistentDirectories(path)
 end
 
 def isFileType(file, extension)
-  return ("."+extension).eql? File.extname(file)
+  return (("."+extension).eql? File.extname(file))
 end
 
 def getFilesOfTypeRecursively(directory,extension,recurse)

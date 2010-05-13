@@ -15,11 +15,11 @@ def getExtension
 end
 
 def toAppFolder?
-  return ARGV.to_a[3].eql? "t"
+  return (ARGV.to_a[3].eql? "t")
 end
 
 def recurse?
-  return ARGV.to_a[4].eql? "t"
+  return (ARGV.to_a[4].eql? "t")
 end
 
 def getMode
